@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_item_attachment"
+            android:checked="true"
+            android:icon="@drawable/ic_attachment"
+            android:title="@string/nav_item_presenter" />
+        <item
+            android:id="@+id/navigation_item_images"
+            android:icon="@drawable/ic_image"
+            android:title="@string/nav_item_viewer" />
+        <item
+            android:id="@+id/navigation_item_location"
+            android:icon="@drawable/ic_place"
+            android:title="@string/nav_item_location" />
+    </group>
+
+    <item android:title="@string/nav_sub_streaming">
+        <menu>
+            <item
+                android:id="@+id/nav_sub_presenter"
+                android:title="@string/nav_item_presenter" />
+            <item
+                android:id="@+id/nav_sub_viewer"
+                android:title="@string/nav_item_viewer" />
+            <item
+                android:id="@+id/nav_sub_Vod_viewer"
+                android:title="@string/nav_item_Vod_viewer" />
+        </menu>
+    </item>
+
+
+</menu>
