@@ -1,10 +1,11 @@
 package com.example.finalproject;
 
-/*
-* 로그인 후 처음 들어오게되는 화면
-* DrawerLayout을 적용
-* DrawerLayout에 추가해야되는 모든 것들은 여기에서 작성하면 됨.
-* */
+/**
+ * 로그인 후 처음 들어오게되는 화면
+ * DrawerLayout을 적용
+ * DrawerLayout에 추가해야되는 모든 것들은 여기에서 작성하면 됨.
+ * */
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -23,6 +24,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
+import com.example.finalproject.googlemap.ActivityGoogleMap;
 import com.example.finalproject.kakaopay.ActivityKakaopayToToken;
 import com.example.finalproject.retrofit.RetrofitConnect;
 import com.example.finalproject.retrofit.RetrofitInterface;
@@ -71,17 +73,18 @@ public class MainActivity extends AppCompatActivity {
                 int id = menuItem.getItemId();
                 switch (id) {
                     case R.id.navigation_item_attachment:
-                        Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
+                        Intent goGoogleMap = new Intent(getApplicationContext(), ActivityGoogleMap.class);
+                        startActivity(goGoogleMap);
                         break;
 
                         //카카오페이로 토큰 충전하기
-                    case R.id.navigation_item_images:
+                    case R.id.navigation_item_kakao_token:
                         Intent gokakaoPay = new Intent(getApplicationContext(), ActivityKakaopayToToken.class);
                         startActivity(gokakaoPay);
                         break;
 
                         //토큰으로 물품 구입하기
-                    case R.id.navigation_item_location:
+                    case R.id.navigation_item_health_product:
                         Intent goHealthProduct = new Intent(getApplicationContext(), ActivityHealthProduct.class);
                         startActivity(goHealthProduct);
                         break;

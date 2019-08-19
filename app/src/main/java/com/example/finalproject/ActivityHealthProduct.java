@@ -1,5 +1,9 @@
 package com.example.finalproject;
 
+/**
+ * 헬스용품 목록을 볼 수 있는 Activity
+ * */
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;

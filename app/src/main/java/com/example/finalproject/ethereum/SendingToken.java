@@ -1,10 +1,11 @@
 package com.example.finalproject.ethereum;
 
-import android.app.ProgressDialog;
+
 import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.finalproject.ActivityHealthProductBuy;
+import com.example.finalproject.kakaopay.ActivityKakaopayToToken;
 
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
@@ -84,5 +85,8 @@ public class SendingToken {
     }
     public void registerCallBackToken2(ActivityHealthProductBuy activityHealthProductBuy) {
         this.cbSendingToken = activityHealthProductBuy;
+    }
+    public void registerCallBackToken3(ActivityKakaopayToToken activityKakaopayToToken) {
+        this.cbSendingToken = activityKakaopayToToken;
     }
 }

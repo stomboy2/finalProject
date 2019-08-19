@@ -1,12 +1,15 @@
 package com.example.finalproject;
 
+/**
+ * 헬스용품을 토큰을 통해서 구매를 할 수 있는 Activity
+ * */
+
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,18 +19,14 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.finalproject.ethereum.CBLoadSmartContract;
 import com.example.finalproject.ethereum.CBSendingToken;
-import com.example.finalproject.ethereum.Jacken;
 import com.example.finalproject.ethereum.LoadSmartContract;
 import com.example.finalproject.ethereum.SendingToken;
 
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.Web3jFactory;
-import org.web3j.protocol.core.DefaultBlockParameterName;
-import org.web3j.protocol.core.methods.response.EthGetBalance;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.protocol.http.HttpService;
-import org.web3j.utils.Convert;
 
 import java.math.BigInteger;
 import java.util.Map;
@@ -50,11 +49,8 @@ public class ActivityHealthProductBuy extends AppCompatActivity implements CBLoa
 
     Context context = this;
     private Web3j mweb3j;
-    private Jacken jacken;
     Credentials credentials;
-    EthGetBalance ethGetBalance;
     SendingToken sendingToken;
-    String exchage;
 
     //스마트 컨트랙트 주소
     String mContract = "0x6ff24c91271dec2b06de58010563948bf2ca6bb8";
@@ -116,9 +112,6 @@ public class ActivityHealthProductBuy extends AppCompatActivity implements CBLoa
 
     public void getWalletinfo(){
         LoadSmartContract loadSmartContract = new LoadSmartContract(mweb3j, credentials, mContract, BigInteger.valueOf(10), BigInteger.valueOf(300000));
-
-        Log.e("TAG", "이곳에서 credentials는 무슨 값인가?::"+credentials);
-
         loadSmartContract.registerCallBack(this);
         loadSmartContract.LoadToken();
     }

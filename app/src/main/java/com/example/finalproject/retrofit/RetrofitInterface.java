@@ -1,6 +1,7 @@
 package com.example.finalproject.retrofit;
 
 import com.example.finalproject.retrofit.pojo.CurrentVideoListModel;
+import com.example.finalproject.retrofit.pojo.HealthClubPositionListModel;
 import com.example.finalproject.retrofit.pojo.HealthProductListModel;
 import com.example.finalproject.retrofit.pojo.KakaoPayResult;
 import com.example.finalproject.retrofit.pojo.VideoListModel;
@@ -40,6 +41,9 @@ public interface RetrofitInterface {
     //헬스용품 목록을 갖고 오기 위해서 요청
     @GET("getHealthProduct.php")
     Call<HealthProductListModel> getHealthProductListModelCall();
+
+    @GET("getHealthClubPosition.php")
+    Call<HealthClubPositionListModel> getHealthClubPositionListModelCall();
 
     //카카오톡페이를 이용할때 결제 준비를 위한 요청
     @FormUrlEncoded

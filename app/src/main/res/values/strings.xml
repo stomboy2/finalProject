@@ -2,10 +2,11 @@
     <string name="app_name">finalProject</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="nav_item_kakao_token">토큰 충전하기</string>
+    <string name="nav_item_health_product">헬스 용품 구매</string>
     <string name="nav_item_presenter">방송하기</string>
     <string name="nav_item_viewer">방송시청하기</string>
     <string name="nav_item_Vod_viewer">방송보기</string>
-    <string name="nav_item_location">헬스 용품 구매</string>
     <string name="nav_sub_streaming">스트리밍</string>
     <string name="nav_sub_menu_item01">Sub Menu Item 1</string>
     <string name="nav_sub_menu_item02">Sub Menu Item 2</string>

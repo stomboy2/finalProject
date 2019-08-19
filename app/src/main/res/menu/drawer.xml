@@ -7,13 +7,13 @@
             android:icon="@drawable/ic_attachment"
             android:title="@string/nav_item_presenter" />
         <item
-            android:id="@+id/navigation_item_images"
+            android:id="@+id/navigation_item_kakao_token"
             android:icon="@drawable/ic_image"
-            android:title="@string/nav_item_viewer" />
+            android:title="@string/nav_item_kakao_token" />
         <item
-            android:id="@+id/navigation_item_location"
+            android:id="@+id/navigation_item_health_product"
             android:icon="@drawable/shopping_basket_black"
-            android:title="@string/nav_item_location" />
+            android:title="@string/nav_item_health_product" />
     </group>
 
     <item android:title="@string/nav_sub_streaming">
