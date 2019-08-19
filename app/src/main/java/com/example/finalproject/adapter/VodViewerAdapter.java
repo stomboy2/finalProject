@@ -1,6 +1,9 @@
-package com.example.finalproject;
+package com.example.finalproject.adapter;
 
-import android.util.Log;
+/**
+ * ActivityVodViewer에서 사용하는 리싸이클러뷰 Adapter
+ * */
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +14,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.finalproject.ActivityExoPlayer;
+import com.example.finalproject.R;
 import com.example.finalproject.retrofit.pojo.VideoListModel;
+import com.google.android.exoplayer2.ExoPlayerFactory;
+import com.google.android.exoplayer2.SimpleExoPlayer;
+
 
 public class VodViewerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -29,7 +37,7 @@ public class VodViewerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     VideoListModel videoListModel;
 
-    VodViewerAdapter(VideoListModel videoListModel){
+    public VodViewerAdapter(VideoListModel videoListModel){
         this.videoListModel =videoListModel;
     }
 
@@ -46,6 +54,17 @@ public class VodViewerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         Glide.with(myViewHolder.itemView.getContext()).load("http://15.164.219.152/"+videoListModel.getCategoredStockList().get(position).img).into(myViewHolder.imageView);
         myViewHolder.textView.setText(videoListModel.getCategoredStockList().get(position).title);
+
+        //영상리스트에서 클릭했을때 exoplayer로 영상을 보여주는 부분
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent govideopalyerAct = new Intent(holder.itemView.getContext(), ActivityExoPlayer.class);
+                govideopalyerAct.putExtra("title", videoListModel.getCategoredStockList().get(position).title);
+                govideopalyerAct.putExtra("time", videoListModel.getCategoredStockList().get(position).time);
+                holder.itemView.getContext().startActivity(govideopalyerAct);
+            }
+        });
     }
 
     @Override

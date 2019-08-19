@@ -1,11 +1,14 @@
 package com.example.finalproject;
-
+/**
+ * vod 목록을 확인하고 vod 클릭 시 영상을 볼 수 있는 Activity
+ * */
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.example.finalproject.adapter.VodViewerAdapter;
 import com.example.finalproject.retrofit.RetrofitConnect;
 import com.example.finalproject.retrofit.RetrofitInterface;
 import com.example.finalproject.retrofit.pojo.VideoListModel;
@@ -32,8 +35,8 @@ public class ActivityVodViewer extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLayoutManager);
 
+        //http 통신을 통해서 vod목록을 db에서 갖고 온다.
         retrofitInterface = RetrofitConnect.getClient().create(RetrofitInterface.class);
-
 
         Call<VideoListModel> videoListModelCall = retrofitInterface.getVideoList();
         videoListModelCall.enqueue(new Callback<VideoListModel>() {

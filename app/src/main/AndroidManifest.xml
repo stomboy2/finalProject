@@ -17,8 +17,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ActivityCurrentViewer"></activity>
-        <activity android:name=".ActivityChatTest" />
+        <activity android:name=".kakaopay.ActivityKakaopayWebview"></activity>
+        <activity android:name=".kakaopay.ActivityKakaopayToToken" />
+        <activity android:name=".ActivityHealthProductBuy" />
+        <activity android:name=".ActivityHealthProduct" />
+        <activity android:name=".ethereum.ActivityToken" />
+        <activity android:name=".ActivityExoPlayer" />
+        <activity android:name=".ActivityCurrentViewer" />
         <activity android:name=".ActivityVodViewer" />
         <activity android:name=".MainActivity" />
         <activity android:name=".ActivitySignup" />

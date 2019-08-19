@@ -1,7 +1,10 @@
-package com.example.finalproject;
+package com.example.finalproject.adapter;
+
+/**
+ * ActivityCurrentViewer에서 사용하는 리싸이클러뷰 Adapter
+ * */
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.finalproject.R;
 import com.example.finalproject.retrofit.pojo.CurrentVideoListModel;
 import com.example.finalproject.streaming.viewer.ViewerActivity_;
 
@@ -17,6 +21,7 @@ public class CurrentViewerAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     public static String vodViewerTitle;
     public static String vodViewerTime;
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView textView;
 
@@ -28,7 +33,7 @@ public class CurrentViewerAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     CurrentVideoListModel currentVideoListModel;
 
-    CurrentViewerAdapter(CurrentVideoListModel currentVideoListModel){
+    public CurrentViewerAdapter(CurrentVideoListModel currentVideoListModel){
         this.currentVideoListModel =currentVideoListModel;
     }
 

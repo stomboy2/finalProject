@@ -1,5 +1,10 @@
 package com.example.finalproject;
 
+/*
+* 로그인 후 처음 들어오게되는 화면
+* DrawerLayout을 적용
+* DrawerLayout에 추가해야되는 모든 것들은 여기에서 작성하면 됨.
+* */
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -12,14 +17,13 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.InputFilter;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
 
+import com.example.finalproject.kakaopay.ActivityKakaopayToToken;
 import com.example.finalproject.retrofit.RetrofitConnect;
 import com.example.finalproject.retrofit.RetrofitInterface;
 import com.example.finalproject.streaming.broadcaster.BroadCasterActivity_;
@@ -37,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static String vodTitle;
     public static String vodTime;
+
 
     RetrofitInterface retrofitInterface;
 
@@ -69,27 +74,32 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
                         break;
 
+                        //카카오페이로 토큰 충전하기
                     case R.id.navigation_item_images:
-                        Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
+                        Intent gokakaoPay = new Intent(getApplicationContext(), ActivityKakaopayToToken.class);
+                        startActivity(gokakaoPay);
                         break;
 
+                        //토큰으로 물품 구입하기
                     case R.id.navigation_item_location:
-                        Intent gochat = new Intent(getApplicationContext(),ActivityChatTest.class);
-                        startActivity(gochat);
+                        Intent goHealthProduct = new Intent(getApplicationContext(), ActivityHealthProduct.class);
+                        startActivity(goHealthProduct);
                         break;
 
+                        //방송을 하기 위한 case
                     case R.id.nav_sub_presenter:
 
                         AlertDialog.Builder alert = new AlertDialog.Builder(currentActivity);
                         alert.setTitle("방제목 설정");
 
+                        //alert 창에서 입력한 text 값을 받을 edit
                         final EditText name = new EditText(currentActivity);
                         alert.setView(name);
                         alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton) { //확인 버튼을 클릭했을때
+                            //alert창에서 확인 버튼을 클릭했을때
+                            public void onClick(DialogInterface dialog, int whichButton) {
                                 long time = System.currentTimeMillis();
                                 String vodTitleTmp = name.getText().toString();
-                                Log.e("입력한값",vodTitleTmp);
                                 vodTitle = vodTitleTmp;
                                 vodTime = String.valueOf(time);
 
@@ -117,11 +127,13 @@ public class MainActivity extends AppCompatActivity {
                         alert.show();
                         break;
 
+                        //방송을 시청하기 위한 case
                     case R.id.nav_sub_viewer:
                         Intent goViewer = new Intent(getApplicationContext(),ActivityCurrentViewer.class);
                         startActivity(goViewer);
                         break;
 
+                        //vod를 보기 위한 case
                     case R.id.nav_sub_Vod_viewer:
                         Intent goVodViewer = new Intent(getApplicationContext(),ActivityVodViewer.class);
                         startActivity(goVodViewer);

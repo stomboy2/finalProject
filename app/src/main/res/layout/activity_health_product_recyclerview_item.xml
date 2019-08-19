@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/act_health_product_img"
+        android:layout_width="401dp"
+        android:layout_height="186dp"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/ic_launcher_round" />
+
+    <TextView
+        android:id="@+id/act_health_product_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/act_health_product_img"
+        android:gravity="center"
+        android:hint="이름"
+        android:textColor="#3f3f3f"
+        android:textSize="13dp" />
+
+    <TextView
+        android:id="@+id/act_health_product_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/act_health_product_name"
+        android:gravity="center"
+        android:hint="가격"
+        android:textColor="#3f3f3f"
+        android:textSize="13dp" />
+
+</RelativeLayout>

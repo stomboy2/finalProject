@@ -1,9 +1,11 @@
 package com.example.finalproject;
 
+/**
+ * 회원가입 Activity
+ * */
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -30,7 +32,7 @@ public class ActivitySignup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        act_signup_back_img = findViewById(R.id.act_signup_back_img);
+        act_signup_back_img = findViewById(R.id.act_kakaopay_back_img);
         act_signup_name_txt = findViewById(R.id.act_signup_name_txt);
         act_signup_email_txt = findViewById(R.id.act_signup_email_txt);
         act_signup_pwd_txt = findViewById(R.id.act_signup_pwd_txt);

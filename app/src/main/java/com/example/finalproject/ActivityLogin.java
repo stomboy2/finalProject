@@ -1,5 +1,9 @@
 package com.example.finalproject;
 
+/**
+ * 로그인 Activity
+ * */
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
