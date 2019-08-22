@@ -1,5 +1,6 @@
 package com.example.finalproject.retrofit;
 
+import com.example.finalproject.googlemap.DirectionsResponse;
 import com.example.finalproject.retrofit.pojo.CurrentVideoListModel;
 import com.example.finalproject.retrofit.pojo.HealthClubPositionListModel;
 import com.example.finalproject.retrofit.pojo.HealthProductListModel;
@@ -12,6 +13,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface RetrofitInterface {
 
@@ -72,5 +74,13 @@ public interface RetrofitInterface {
             @Field("partner_order_id") String partner_order_id,
             @Field("partner_user_id") String partner_user_id,
             @Field("pg_token") String pg_token
+    );
+
+    @GET("maps/api/directions/json?")
+    Call<DirectionsResponse> getDirections(
+            @Query("origin") String origin,
+            @Query("destination") String destination,
+            @Query("mode") String mod,
+            @Query("key") String key
     );
 }

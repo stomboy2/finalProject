@@ -25,7 +25,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBNCyS7q1PqsliL992d5oC0MWpJ-N8fxus" />
+            android:value="@string/google_maps_key" />
 
         <activity android:name=".googlemap.ActivityGoogleMap"></activity>
         <activity android:name=".kakaopay.ActivityKakaopayWebview" />
@@ -38,6 +38,7 @@
         <activity android:name=".ActivityVodViewer" />
         <activity android:name=".MainActivity" />
         <activity android:name=".ActivitySignup" />
+        <activity android:name=".googlemap.ArCamActivity" android:screenOrientation="landscape"/>
         <activity android:name=".ActivityLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

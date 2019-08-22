@@ -37,7 +37,6 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -125,9 +124,9 @@ public class ActivityGoogleMap extends AppCompatActivity implements OnMapReadyCa
                 .addApi(LocationServices.API)
                 .build();
 
-//        gpsTracker = new GpsTracker(ActivityGoogleMap.this);
-//        latitude = gpsTracker.getLatitude();
-//        longitude = gpsTracker.getLongitude();
+        gpsTracker = new GpsTracker(ActivityGoogleMap.this);
+        latitude = gpsTracker.getLatitude();
+        longitude = gpsTracker.getLongitude();
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -181,7 +180,6 @@ public class ActivityGoogleMap extends AppCompatActivity implements OnMapReadyCa
             mGoogleMap.setMyLocationEnabled(true);
 
         }
-
     }
 
 
@@ -212,6 +210,23 @@ public class ActivityGoogleMap extends AppCompatActivity implements OnMapReadyCa
         mGoogleMap.animateCamera(CameraUpdateFactory.zoomTo(15));
 
         setUpClusterer();
+
+        mGoogleMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
+            @Override
+            public void onMapLongClick(LatLng latLng) {
+                Intent intent= new Intent(getApplicationContext(), ArCamActivity.class);
+
+                try {
+                    intent.putExtra("SRC", "출발지");
+                    intent.putExtra("DEST", "목적지");
+                    intent.putExtra("SRCLATLNG", latitude + "," + longitude);
+                    intent.putExtra("DESTLATLNG", latLng.latitude + "," + latLng.longitude);
+                    startActivity(intent);
+                }catch (NullPointerException npe){
+
+                }
+            }
+        });
     }
 
 
@@ -268,8 +283,6 @@ public class ActivityGoogleMap extends AppCompatActivity implements OnMapReadyCa
 
     @Override
     public void onConnected(Bundle connectionHint) {
-
-
         if ( mRequestingLocationUpdates == false ) {
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -595,4 +608,6 @@ public class ActivityGoogleMap extends AppCompatActivity implements OnMapReadyCa
             mClusterManager.addItem(offsetItem);
         }
     }
+
+
 }
