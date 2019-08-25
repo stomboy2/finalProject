@@ -29,6 +29,7 @@ import com.example.finalproject.kakaopay.ActivityKakaopayToToken;
 import com.example.finalproject.retrofit.RetrofitConnect;
 import com.example.finalproject.retrofit.RetrofitInterface;
 import com.example.finalproject.streaming.broadcaster.BroadCasterActivity_;
+import com.example.finalproject.unitygame.UnityPlayerActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import retrofit2.Call;
@@ -72,7 +73,9 @@ public class MainActivity extends AppCompatActivity {
 
                 int id = menuItem.getItemId();
                 switch (id) {
-                    case R.id.navigation_item_attachment:
+
+                    //주위 헬스장 찾기
+                    case R.id.navigation_item_health_place:
                         Intent goGoogleMap = new Intent(getApplicationContext(), ActivityGoogleMap.class);
                         startActivity(goGoogleMap);
                         break;
@@ -91,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
                         //방송을 하기 위한 case
                     case R.id.nav_sub_presenter:
+
 
                         AlertDialog.Builder alert = new AlertDialog.Builder(currentActivity);
                         alert.setTitle("방제목 설정");
@@ -142,6 +146,11 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(goVodViewer);
                         break;
 
+                    //vod를 보기 위한 case
+                    case R.id.nav_sub_game:
+                        Intent goPlayGame = new Intent(getApplicationContext(), UnityPlayerActivity.class);
+                        startActivity(goPlayGame);
+                        break;
                 }
                 return true;
             }

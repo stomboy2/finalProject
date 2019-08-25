@@ -38,6 +38,7 @@
         <activity android:name=".ActivityVodViewer" />
         <activity android:name=".MainActivity" />
         <activity android:name=".ActivitySignup" />
+        <activity android:name=".unitygame.UnityPlayerActivity" />
         <activity android:name=".googlemap.ArCamActivity" android:screenOrientation="landscape"/>
         <activity android:name=".ActivityLogin">
             <intent-filter>

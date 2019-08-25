@@ -2,10 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/navigation_item_attachment"
+            android:id="@+id/navigation_item_health_place"
             android:checked="true"
-            android:icon="@drawable/ic_attachment"
-            android:title="@string/nav_item_presenter" />
+            android:icon="@drawable/fitness_center"
+            android:title="@string/nav_item_health_place" />
         <item
             android:id="@+id/navigation_item_kakao_token"
             android:icon="@drawable/ic_image"
@@ -30,6 +30,15 @@
                 android:id="@+id/nav_sub_Vod_viewer"
                 android:icon="@drawable/video_call_black"
                 android:title="@string/nav_item_Vod_viewer" />
+        </menu>
+    </item>
+
+    <item android:title="@string/nav_sub_game">
+        <menu>
+            <item
+                android:id="@+id/nav_sub_game"
+                android:icon="@drawable/videogame_asset"
+                android:title="@string/nav_item_game" />
         </menu>
     </item>
 
